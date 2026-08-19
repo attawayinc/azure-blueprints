@@ -23,10 +23,10 @@ cut over your blueprints.
 - Publish **Template Specs**, deploy **Deployment Stacks** with `denySettings` (lock parity)
 - Validate, cut over, and decommission — with the common **caveats and limitations** called out (for example, role-assignment adoption, tag preservation, and management-group permissions)
 
-## ⚖️ Legal notices and disclaimers
+## Legal notices and disclaimers
 
 > [!CAUTION]
-> **This skill generates commands that can permanently delete or alter Azure resources.** Read the full [Legal notices and disclaimers](./SKILL.md#️-legal-notices-and-disclaimers) in `SKILL.md` before using it.
+> **This skill generates commands that can permanently delete or alter Azure resources.** Read the full [Legal notices and disclaimers](./SKILL.md#legal-notices-and-disclaimers) in `SKILL.md` before using it.
 
 In summary:
 

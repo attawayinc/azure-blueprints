@@ -10,7 +10,7 @@ description: Use when a user needs to migrate off Azure Blueprints (definitions 
 
 ---
 
-## ⚖️ Legal notices and disclaimers
+## Legal notices and disclaimers
 
 > [!IMPORTANT]
 > **Read this before using this skill.** By using this skill, or by acting on output an AI assistant produces from it, you accept the terms below.
@@ -293,7 +293,7 @@ Deleting a **management-group-scoped** definition requires Blueprint Contributor
 
 ## Guardrails — things the AI must do
 
-- **Surface the disclaimer before any destructive step.** Before generating `Remove-AzBlueprintAssignment`, `az blueprint delete`, any REST `DELETE` against `Microsoft.Blueprint`, or any deployment stack operation using `-ActionOnUnmanage deleteResources`, explicitly remind the user that the operation is **irreversible**, that they are responsible for verifying scope and taking backups/exports first, and that this guidance is provided **as is, without warranty** (see [Legal notices and disclaimers](#️-legal-notices-and-disclaimers)).
+- **Surface the disclaimer before any destructive step.** Before generating `Remove-AzBlueprintAssignment`, `az blueprint delete`, any REST `DELETE` against `Microsoft.Blueprint`, or any deployment stack operation using `-ActionOnUnmanage deleteResources`, explicitly remind the user that the operation is **irreversible**, that they are responsible for verifying scope and taking backups/exports first, and that this guidance is provided **as is, without warranty** (see [Legal notices and disclaimers](#legal-notices-and-disclaimers)).
 - **Never assert that output is validated, approved, or supported by Microsoft.** Present generated commands as suggestions the user must review and test. Do not state or imply an SLA, support commitment, compliance certification, or guarantee of any date or outcome.
 - **Do not generate or run any `Remove-AzBlueprintAssignment` command until** the user confirms the replacement Stack is deployed and validated, and any decoupled policies are re-assigned.
 - **Do not recommend `denyWriteAndDelete`** unless the user explicitly needs write-protection — it blocks normal RBAC-allowed updates. Default to `denyDelete`.
@@ -372,4 +372,4 @@ A: Use the public [`Azure/azure-blueprints`](https://github.com/Azure/azure-blue
 
 ---
 
-*Skill version: 2.2 · Published by Microsoft as MIT-licensed sample content — see [Legal notices and disclaimers](#️-legal-notices-and-disclaimers). Provided "AS IS" with no warranty, SLA, or support commitment. Verify all commands against the latest Microsoft Learn documentation, and test in a non-production subscription, before running.*
+*Skill version: 2.2 · Published by Microsoft as MIT-licensed sample content — see [Legal notices and disclaimers](#legal-notices-and-disclaimers). Provided "AS IS" with no warranty, SLA, or support commitment. Verify all commands against the latest Microsoft Learn documentation, and test in a non-production subscription, before running.*
