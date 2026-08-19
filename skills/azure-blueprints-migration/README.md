@@ -23,4 +23,17 @@ cut over your blueprints.
 - Publish **Template Specs**, deploy **Deployment Stacks** with `denySettings` (lock parity)
 - Validate, cut over, and decommission — with the common **caveats and limitations** called out (for example, role-assignment adoption, tag preservation, and management-group permissions)
 
-> This skill is guidance only. Always verify commands against the latest Microsoft Learn documentation before running them.
+## Legal notices and disclaimers
+
+> [!CAUTION]
+> **This skill generates commands that can permanently delete or alter Azure resources.** Read the full [Legal notices and disclaimers](./SKILL.md#legal-notices-and-disclaimers) in `SKILL.md` before using it.
+
+In summary:
+
+- **Provided "AS IS."** MIT-licensed sample content (see [`LICENSE`](../../LICENSE)) — **no warranty of any kind**, express or implied, and **no liability** for any damages or data loss arising from its use, to the maximum extent permitted by law.
+- **Not a Microsoft product or service.** Not covered by any SLA, support agreement, or product lifecycle policy. File issues in this repository; do not open a Microsoft support case.
+- **Guidance, not advice.** Not legal, regulatory, compliance, audit, or security advice, and it certifies no compliance posture. Consult your own advisors before changing regulated or production workloads.
+- **AI output may be wrong.** Commands an AI assistant generates from this skill are suggestions, not validated instructions. Review, understand, and test every command yourself.
+- **Destructive and irreversible.** Deleting blueprint definitions/assignments, deploying stacks with `deleteResources`, and applying deny-settings can cause permanent loss. **Export and back up first, and validate in a non-production subscription.** You are solely responsible for changes made in your own environment.
+- **Dates and roadmap may change.** Nothing here is a commitment by Microsoft. The authoritative sources are <https://aka.ms/AzureBlueprintsRetirement> and [Microsoft Learn](https://learn.microsoft.com/azure/governance/blueprints/overview).
+- **Don't paste secrets into an AI chat.** Credentials, keys, tokens, personal data, and confidential information may be processed by the AI provider under its own terms.
