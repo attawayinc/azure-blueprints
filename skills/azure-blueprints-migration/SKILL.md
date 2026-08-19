@@ -10,6 +10,33 @@ description: Use when a user needs to migrate off Azure Blueprints (definitions 
 
 ---
 
+## ⚖️ Legal notices and disclaimers
+
+> [!IMPORTANT]
+> **Read this before using this skill.** By using this skill, or by acting on output an AI assistant produces from it, you accept the terms below.
+
+**Sample content, provided "AS IS."** This skill is sample content made available under the [MIT License](../../LICENSE) in this repository. It is **provided "AS IS", without warranty of any kind**, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, title, accuracy, and non-infringement. To the maximum extent permitted by applicable law, in no event shall Microsoft Corporation, its affiliates, or any contributor be liable for any claim, damages, or other liability — including direct, indirect, incidental, special, exemplary, consequential, or punitive damages, or for loss of data, loss of profits, loss of revenue, or business interruption — arising from, out of, or in connection with this skill or its use, however caused and on any theory of liability, even if advised of the possibility of such damages.
+
+**Not a Microsoft product or service.** This skill is not a Microsoft product, service, or offering, and is not part of any Azure service. It is **not covered by any Microsoft service level agreement (SLA), support agreement, Premier/Unified Support contract, or product lifecycle policy**, and Microsoft has no obligation to maintain, update, correct, or continue to publish it. Do not open a Microsoft support case for this skill; file an issue in the [`Azure/azure-blueprints`](https://github.com/Azure/azure-blueprints/issues) repository instead. For issues with an Azure service itself, use your normal Azure support channel.
+
+**Guidance only — not advice.** This content is general technical guidance for informational purposes only. It is **not legal, regulatory, compliance, audit, security, financial, tax, or other professional advice**, and it neither establishes nor certifies any compliance posture. Migrating away from Azure Blueprints can change governance, policy enforcement, resource locks, role assignments, and audit evidence in your environment. **Consult your own legal, compliance, and security advisors** before applying any of this guidance to regulated, production, or business-critical workloads.
+
+**AI-generated output may be wrong.** This skill instructs an AI assistant. AI output is **probabilistic and non-deterministic**: it may be inaccurate, incomplete, out of date, or inapplicable to your environment, and the same prompt may produce different results at different times. Any commands, scripts, templates, parameters, or resource identifiers an AI assistant generates using this skill are **suggestions, not validated instructions**, and are not reviewed or endorsed by Microsoft. **You are responsible for independently reviewing, understanding, and testing every command before you run it.**
+
+**Destructive operations — your responsibility.** This skill describes operations that can be **irreversible and destructive**, including without limitation: removing blueprint assignments; deleting blueprint definitions and published versions; creating, updating, or deleting deployment stacks (including `deleteResources` behavior on unmanage); and applying or removing deny-settings, deny-assignments, and resource locks. Removing a blueprint assignment can also remove policy assignments, role assignments, and other resources it created. **You are solely responsible** for verifying scope and target identifiers; exporting and backing up definitions, assignments, parameters, and templates *before* deleting anything; validating in a non-production subscription first; following your own change-management, approval, and rollback processes; and for any resulting data loss, downtime, cost, security exposure, or compliance impact. Microsoft is not responsible for changes you make to your own Azure environment.
+
+**Your environment, your credentials, your permissions.** Every command described here runs under **your** credentials and permissions, against **your** tenants, management groups, subscriptions, and resources. Neither Microsoft nor this skill performs any migration on your behalf, and **Microsoft will not automatically migrate your blueprints**. Your use of Azure services remains governed by the agreement under which you obtained them (for example, the Microsoft Customer Agreement or an Enterprise Agreement), the [Microsoft Product Terms](https://www.microsoft.com/licensing/terms/), the [Microsoft Privacy Statement](https://privacy.microsoft.com/privacystatement), and applicable Azure service-specific terms. Nothing in this skill modifies, supplements, or waives any term of those agreements.
+
+**Dates and roadmap are subject to change.** Retirement dates, phased timelines, feature availability, product capabilities, and migration recommendations referenced in this skill **may change**. Nothing here is a commitment, promise, warranty, or binding obligation by Microsoft to deliver any feature or to honor any date, and it should not be relied upon in making purchasing or architectural decisions. The authoritative sources are the official retirement notice at <https://aka.ms/AzureBlueprintsRetirement> and [Microsoft Learn](https://learn.microsoft.com/azure/governance/blueprints/overview). **Always verify against current official documentation before acting.**
+
+**Do not share secrets or confidential data with an AI assistant.** Prompts, files, and command output you provide to an AI assistant may be transmitted to and processed by that assistant's provider under **its own terms and privacy policy**, which may not be Microsoft's. Do not paste credentials, keys, connection strings, certificates, tokens, personal data, customer data, or other confidential or regulated information into an AI conversation. Handling of anything you submit is governed by the terms of the AI product you are using, not by this repository.
+
+**Third-party and separately licensed components.** Azure PowerShell (`Az`, `Az.Blueprint`), Azure CLI, Bicep, GitHub Copilot, and any other tools, modules, packages, or AI assistants referenced here are **licensed separately under their own terms** and are not provided, warranted, or supported as part of this skill. Trademarks and logos are subject to the [Microsoft Trademark & Brand Guidelines](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general); third-party trademarks are the property of their respective owners, and use of them does not imply endorsement.
+
+**Severability.** If any provision of these notices is held unenforceable, the remaining provisions remain in full force and effect.
+
+---
+
 ## When to use this skill
 
 Invoke this skill whenever the user:
@@ -266,6 +293,8 @@ Deleting a **management-group-scoped** definition requires Blueprint Contributor
 
 ## Guardrails — things the AI must do
 
+- **Surface the disclaimer before any destructive step.** Before generating `Remove-AzBlueprintAssignment`, `az blueprint delete`, any REST `DELETE` against `Microsoft.Blueprint`, or any deployment stack operation using `-ActionOnUnmanage deleteResources`, explicitly remind the user that the operation is **irreversible**, that they are responsible for verifying scope and taking backups/exports first, and that this guidance is provided **as is, without warranty** (see [Legal notices and disclaimers](#️-legal-notices-and-disclaimers)).
+- **Never assert that output is validated, approved, or supported by Microsoft.** Present generated commands as suggestions the user must review and test. Do not state or imply an SLA, support commitment, compliance certification, or guarantee of any date or outcome.
 - **Do not generate or run any `Remove-AzBlueprintAssignment` command until** the user confirms the replacement Stack is deployed and validated, and any decoupled policies are re-assigned.
 - **Do not recommend `denyWriteAndDelete`** unless the user explicitly needs write-protection — it blocks normal RBAC-allowed updates. Default to `denyDelete`.
 - **Do not recommend `-ActionOnUnmanage deleteResources` during pilot.** Use `detachAll` until the user is confident.
@@ -343,4 +372,4 @@ A: Use the public [`Azure/azure-blueprints`](https://github.com/Azure/azure-blue
 
 ---
 
-*Skill version: 2.1 · Maintained by Microsoft. Verify all commands against the latest Microsoft Learn documentation before running.*
+*Skill version: 2.2 · Published by Microsoft as MIT-licensed sample content — see [Legal notices and disclaimers](#️-legal-notices-and-disclaimers). Provided "AS IS" with no warranty, SLA, or support commitment. Verify all commands against the latest Microsoft Learn documentation, and test in a non-production subscription, before running.*
